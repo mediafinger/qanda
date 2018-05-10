@@ -1,1 +1,20 @@
 %h2 Ask a question
+
+= form_for @question do |f|
+  - if @question.errors.any?
+    #error_explanation.failure
+      %h3= "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
+      %ul
+        - @question.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    .label Title:
+    %input{ type: "text", name: "title", placeholder: "Brief question", value: @question.title, maxlength: 255 }
+
+  .field
+    .label Body:
+    %textarea{ name: "body", placeholder: "All the glorious details of your question", value: @question.body }
+
+  .field.actions
+    = f.submit "Submit"

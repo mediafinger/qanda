@@ -51,6 +51,9 @@ Metrics/PerceivedComplexity:
 RSpec/AlignLeftLetBrace:
   Enabled: true
 
+RSpec/ContextWording:
+  Enabled: false
+
 RSpec/DescribeClass:
   Exclude:
     - 'spec/integration/**/*_spec.rb'
@@ -65,11 +68,17 @@ RSpec/ExampleLength:
 RSpec/ExpectChange:
   EnforcedStyle: block
 
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Max: 5
 
 RSpec/NamedSubject:
   Enabled: true
+
+RSpec/NestedGroups:
+  Max: 4
 
 Style/BracesAroundHashParameters:
   Enabled: false

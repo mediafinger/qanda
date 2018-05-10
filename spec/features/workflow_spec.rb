@@ -2,14 +2,15 @@
 
 require "rails_helper"
 
-RSpec.feature "Login-Logout flow", type: :feature do
+RSpec.feature "Workflow", type: :feature do
   before do
   end
 
-  scenario "User Logs in and Logs out again" do
+  scenario "User logs in, asks a question, and logs out again" do
     login_with_invalid_credentials
 
     login_succesfully
+    ask_a_question
 
     logout
   end
@@ -22,7 +23,7 @@ RSpec.feature "Login-Logout flow", type: :feature do
     visit "/"
     click_link "Please login with Google to continue"
 
-    expect(page).to have_text("Please login with Google to continue")
+    expect(page).to have_link("Please login with Google to continue")
   end
 
   def login_succesfully
@@ -33,6 +34,18 @@ RSpec.feature "Login-Logout flow", type: :feature do
     expect(page).to have_link("Logout")
     expect(page).to have_link("Questions")
     expect(page).to have_link("Ask Question")
+  end
+
+  def ask_a_question
+    click_link "Ask Question"
+
+    fill_in "title", with: "Why?"
+    fill_in "body", with: "Why did the lucky stiff disappear? And where is he now?"
+    click_button "Submit"
+
+    expect(page).to have_text("Question was successfully created.")
+    expect(page).to have_text("List of all questions")
+    expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
   end
 
   def logout

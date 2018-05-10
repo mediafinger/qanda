@@ -21,6 +21,14 @@
       %hr
       %br
 
+      - if flash[:notice]
+        .success
+          = flash[:notice]
+
+      - if flash[:alert]
+        .failure
+          = flash[:alert]
+
       = yield
 
     - else
