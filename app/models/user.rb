@@ -9,7 +9,7 @@ class User < ApplicationRecord
   def self.find_or_create_from(auth)
     where(provider: auth[:provider], provider_uid: auth[:uid]).first_or_initialize.tap do |user|
       user.email        = auth.dig(:info, :email)
-      user.name         = "#{auth.dig(:info, :first_name)} #{auth.dig(:info, :last_name)}"
+      user.name         = auth.dig(:info, :name)
       user.image        = auth.dig(:info, :image)
       user.provider     = auth[:provider]
       user.provider_uid = auth[:uid]

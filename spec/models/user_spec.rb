@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
       it { expect { user }.to change { User.count }.by(1) }
 
       it { expect(user.email).to        eq(auth.dig(:info, :email)) }
-      it { expect(user.name).to         eq("#{auth.dig(:info, :first_name)} #{auth.dig(:info, :last_name)}") }
+      it { expect(user.name).to         eq(auth.dig(:info, :name)) }
       it { expect(user.image).to        eq(auth.dig(:info, :image)) }
       it { expect(user.provider).to     eq(auth[:provider]) }
       it { expect(user.provider_uid).to eq(auth[:uid]) }
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
 
       it "updates current user information" do
         expect(user.email).to eq(auth.dig(:info, :email))
-        expect(user.name).to  eq("#{auth.dig(:info, :first_name)} #{auth.dig(:info, :last_name)}")
+        expect(user.name).to  eq(auth.dig(:info, :name))
         expect(user.image).to eq(auth.dig(:info, :image))
       end
     end
