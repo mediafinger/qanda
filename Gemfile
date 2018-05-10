@@ -26,6 +26,7 @@ group :development, :test do
   gem "awesome_print", "~> 1.8"
   gem "bundler-audit"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "capybara", "~> 2.18"
   gem "rspec-rails", "~> 3.7"
   gem "rubocop", "0.55.0", require: false
   gem "rubocop-rspec", "~> 1.25"

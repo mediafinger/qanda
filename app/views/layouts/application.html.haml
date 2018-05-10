@@ -8,4 +8,21 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    - if current_user
+      %b= "Hello #{current_user.name}"
+      |
+      = link_to "Logout", logout_path, method: :delete
+      |
+      = link_to "Questions", questions_path
+      |
+      = link_to "Ask Question", new_question_path
+
+      %br
+      %hr
+      %br
+
+      = yield
+
+    - else
+      %a{ href: "/auth/google_oauth2", title: "Sign in with Google" }
+        Please login with Google to continue

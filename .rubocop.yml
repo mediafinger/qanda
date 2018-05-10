@@ -25,6 +25,9 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
   IndentationWidth: 2
 
+Metrics/AbcSize:
+  Max: 25
+
 Metrics/BlockLength:
   Exclude:
     - config.rb
