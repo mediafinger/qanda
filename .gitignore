@@ -7,5 +7,6 @@
 /log/*
 /node_modules
 /public/assets
+/spec/examples.txt
 /tmp/*
 /yarn-error.log
