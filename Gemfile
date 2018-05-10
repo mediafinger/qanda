@@ -25,6 +25,7 @@ gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
   gem "awesome_print", "~> 1.8"
+  gem "bundler-audit"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", "~> 3.7"
   gem "rubocop", "0.55.0", require: false

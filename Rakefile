@@ -9,9 +9,11 @@ Rails.application.load_tasks
 
 if %w(development test).include? Rails.env
   require "awesome_print"
+  require "bundler/audit/task"
   require "rspec/core/rake_task"
   require "rubocop"
 
+  Bundler::Audit::Task.new
   RSpec::Core::RakeTask.new(:rspec)
 
   desc "Run rubocop"
@@ -26,5 +28,5 @@ if %w(development test).include? Rails.env
   end
 
   desc "Run rubocop and the specs"
-  task ci: [:rubocop, :rspec]
+  task ci: %w(rubocop bundle:audit rspec)
 end
