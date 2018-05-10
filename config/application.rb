@@ -31,6 +31,15 @@ module Draft
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
+
+      g.helper false
+      g.javascripts false
+      g.stylesheets = false
+
+      g.controller_specs false
+      g.helper_specs false
+      g.view_specs false
+
       g.system_tests = nil
     end
   end
