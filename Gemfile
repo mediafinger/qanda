@@ -10,13 +10,11 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.2.0"
 
-# gem 'google-api-client', '~> 0.11'
-# gem 'omniauth-google-oauth2'
-
 gem "bootsnap", ">= 1.1.0", require: false
 gem "dotenv-rails", "~> 2.4"
 gem "haml", "~> 5.0"
 gem "jbuilder", "~> 2.5"
+gem "omniauth-google-oauth2", "~>  0.5.3" # Alternative with more starts on GitHub: # gem 'google-api-client', '~> 0.11'
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "redcarpet", "~> 3.4"
