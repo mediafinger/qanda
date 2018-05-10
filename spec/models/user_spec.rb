@@ -10,8 +10,7 @@ RSpec.describe User, type: :model do
       {
         info: {
           email: "harry@example.com",
-          first_name: "Harry",
-          last_name: "Potter",
+          name: "Harry Potter",
           image: "http://localhost:3000/harry_potter.png",
         },
         provider: "Google",
