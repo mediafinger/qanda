@@ -6,6 +6,7 @@ AllCops:
   Exclude:
     - config.ru
     - bin/**
+    - db/schema.rb
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
@@ -49,8 +50,17 @@ RSpec/DescribeClass:
     - 'spec/integration/**/*_spec.rb'
     - 'spec/system/**/*_spec.rb'
 
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
 RSpec/ExampleLength:
   Max: 20
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/MultipleExpectations:
+  Max: 5
 
 RSpec/NamedSubject:
   Enabled: true
