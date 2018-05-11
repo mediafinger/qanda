@@ -57,6 +57,7 @@ RSpec.feature "Workflow", type: :feature do
     fill_in "body", with: "He could not handle his fame."
     click_button "Answer"
 
+    expect(page).to have_text("Answer was successfully created.")
     expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
     expect(page).to have_text("He could not handle his fame.")
 

@@ -1,12 +1,7 @@
 %h2 Ask a question
 
 = form_for @question do |f|
-  - if @question.errors.any?
-    #error_explanation.failure
-      %h3= "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
-      %ul
-        - @question.errors.full_messages.each do |message|
-          %li= message
+  = render partial: "/layouts/errors", locals: { record: @question }
 
   .field
     .label Title:
@@ -14,7 +9,8 @@
 
   .field
     .label Body:
-    %textarea{ name: "body", placeholder: "All the glorious details of your question", value: @question.body }
+    %textarea{ name: "body", placeholder: "All the glorious details of your question", maxlength: 65535 }
+      = @question.body
 
   .field.actions
     = f.submit "Submit"

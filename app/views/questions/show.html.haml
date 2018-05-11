@@ -1,11 +1,13 @@
 .question
   .q-title= @question.title
+  .username= @question.user.name
   .q-body= @question.body
 
 = render partial: "/answers/form"
 
 .answers
-  - @question.answers.to_a.each do |a|
+  - @question.answers.to_a.each do |answer|
     .answer
-      .a-title= a.title
-      .a-body= a.body
+      .a-title= answer.title
+      .username= answer.user.name
+      .a-body= answer.body

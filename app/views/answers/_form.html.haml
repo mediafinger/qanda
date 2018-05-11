@@ -1,10 +1,5 @@
 = form_for [@question, @answer] do |f|
-  - if @answer.errors.any?
-    #error_explanation.failure
-      %h3= "#{pluralize(@answer.errors.count, "error")} prohibited this answer from being saved:"
-      %ul
-        - @answer.errors.full_messages.each do |message|
-          %li= message
+  = render partial: "/layouts/errors", locals: { record: @answer }
 
   .field
     .label Title:
@@ -12,7 +7,8 @@
 
   .field
     .label Body:
-    %textarea{ name: "body", placeholder: "tl;dr answer", value: @answer.body }
+    %textarea{ name: "body", placeholder: "tl;dr answer", maxlength: 65535 }
+      = @answer.body
 
   .field.actions
     = f.submit "Answer"
