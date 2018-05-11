@@ -1,13 +1,13 @@
 .question
-  .q-title= @question.title
+  .q-title= render_as_markdown(@question.title)
   .username= @question.user.name
-  .q-body= @question.body
+  .q-body= render_as_markdown(@question.body)
 
 = render partial: "/answers/form"
 
 .answers
   - @question.answers.to_a.each do |answer|
     .answer
-      .a-title= answer.title
+      .a-title= render_as_markdown(answer.title)
       .username= answer.user.name
-      .a-body= answer.body
+      .a-body= render_as_markdown(answer.body)

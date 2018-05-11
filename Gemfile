@@ -18,6 +18,7 @@ gem "omniauth-google-oauth2", "~>  0.5.3" # Alternative with more starts on GitH
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "redcarpet", "~> 3.4"
+gem "rouge", "~> 3.1"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"

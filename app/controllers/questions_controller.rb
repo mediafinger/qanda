@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all # TODO: add limit / pagination
+    @questions = Question.all.order(created_at: :desc) # TODO: add limit / pagination
   end
 
   def new
