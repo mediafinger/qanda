@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   delete "logout", to: "sessions#destroy", as: "logout"
 
-  resources :questions, only: [:index, :new, :create] do
-    resources :answers, only: [:create]
+  resources :questions, only: [:index, :create, :new, :show] do
+    resources :answers, only: [:create, :new]
   end
 
   root to: "questions#index"

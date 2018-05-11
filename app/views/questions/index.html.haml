@@ -3,6 +3,6 @@
 .questions
   - @questions.each do |q|
     .question
-      .q-title= q.title
+      .q-title= link_to q.title, question_path(q)
       .q-body= q.body
       %hr

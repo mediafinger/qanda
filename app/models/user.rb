@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :answers
   has_many :questions
 
   validates :email, presence: true

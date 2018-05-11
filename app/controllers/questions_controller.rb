@@ -21,6 +21,11 @@ class QuestionsController < ApplicationController
     @question = Question.new(user_id: current_user.id)
   end
 
+  def show
+    @question = Question.where(id: params[:id]).includes(:answers).first
+    @answer = Answer.new(user_id: current_user.id, question_id: @question.id)
+  end
+
   private
 
   def question_params

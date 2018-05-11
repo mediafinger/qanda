@@ -1,0 +1,18 @@
+= form_for [@question, @answer] do |f|
+  - if @answer.errors.any?
+    #error_explanation.failure
+      %h3= "#{pluralize(@answer.errors.count, "error")} prohibited this answer from being saved:"
+      %ul
+        - @answer.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    .label Title:
+    %input{ type: "text", name: "title", placeholder: "Brief answer", value: @answer.title, maxlength: 255 }
+
+  .field
+    .label Body:
+    %textarea{ name: "body", placeholder: "tl;dr answer", value: @answer.body }
+
+  .field.actions
+    = f.submit "Answer"

@@ -11,6 +11,7 @@ RSpec.feature "Workflow", type: :feature do
 
     login_succesfully
     ask_a_question
+    answer_a_question
 
     logout
   end
@@ -46,6 +47,20 @@ RSpec.feature "Workflow", type: :feature do
     expect(page).to have_text("Question was successfully created.")
     expect(page).to have_text("List of all questions")
     expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
+  end
+
+  def answer_a_question
+    click_link "Questions"
+    click_link "Why?"
+
+    fill_in "title", with: "Because"
+    fill_in "body", with: "He could not handle his fame."
+    click_button "Answer"
+
+    expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
+    expect(page).to have_text("He could not handle his fame.")
+
+    expect(page).not_to have_text("List of all questions")
   end
 
   def logout
