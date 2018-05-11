@@ -84,7 +84,8 @@ textarea {
 }
 
 .a-title, .q-title {
-  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: -1em;
 }
 
 .a-body, .q-body {

@@ -4,4 +4,5 @@
   - @questions.each do |question|
     .question
       .q-title= link_to render_as_markdown(question.title), question_path(question)
+      .username= question.user.name
       .q-body= render_as_markdown(question.body)
