@@ -1,0 +1,106 @@
+body, input, textarea, code, tt, pre {
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+body {
+  min-width: 25em;
+  max-width: 50em;
+}
+
+a {
+  color: #66a;
+}
+
+div, form, .success, .failure {
+  padding: 0.3em;
+}
+
+form {
+  padding-left: 10em;
+  min-width: 15em;
+  max-width: 25em;
+}
+
+.field, .success, .failure {
+  margin: 0.5em;
+}
+
+.field {
+  text-align: right;
+}
+
+.label {
+  color: #ccc;
+  /* display: inline; */
+  vertical-align: top;
+}
+
+input[type=text], textarea {
+  border-radius: 0.4em;
+  padding: 0.4em;
+  width: 16em;
+}
+
+input[type=submit] {
+  background: #6cf;
+  border-radius: 0.4em;
+  border: 2px solid silver;
+  cursor: pointer;
+  margin: 0.4em;
+  padding: 0.4em 0.6em;
+}
+
+textarea {
+  border: 2px solid silver;
+  height: 4em;
+}
+
+.failure {
+  background-color: #e11;
+  border-radius: 0.2em;
+  color: #fff;
+}
+
+.success {
+  background-color: #6cf;
+  border-radius: 0.2em;
+}
+
+.foot {
+  font-family: monospace;
+  font-size: 0.9em;
+  padding-top: 3.5em;
+  text-align: right;
+}
+
+.questions {
+  display:inline-block;
+  max-width: 50em;
+}
+
+.question {
+  word-wrap:break-word;
+}
+
+.a-title, .q-title {
+  font-weight: bold;
+}
+
+.a-body, .q-body {
+  border-radius: 0.2em;
+  box-shadow: 0.5em 0.5em 0.3em #ccc;
+  margin-bottom: 2em;
+}
+
+.q-body {
+  font-style: italic;
+}
+
+.username {
+  color: #6cf;
+  font-size: 0.8em;
+  line-height: 1;
+  padding-right: 0.6em;
+  text-align: right;
+}
