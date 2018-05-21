@@ -1,16 +1,15 @@
 %h2 Ask a question
 
-= form_for @question do |f|
+= form_with model: @question, local: true do |f|
   = render partial: "/layouts/errors", locals: { record: @question }
 
   .field
     .label Title:
-    %input{ type: "text", name: "title", placeholder: "Brief question", value: @question.title, maxlength: 255 }
+    = f.text_field :title, placeholder: "Brief question", maxlength: 255
 
   .field
     .label Body:
-    %textarea{ name: "body", placeholder: "All the glorious details of your question, feel free to use markdown", maxlength: 65535 }
-      = @question.body
+    = f.text_area :body, placeholder: "All glorious details of your question, feel free to use markdown", maxlength: 65535
 
   .field.actions
     = f.submit "Submit"

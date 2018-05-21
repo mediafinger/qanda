@@ -1,14 +1,13 @@
-= form_for [@question, @answer] do |f|
+= form_with model: [@question, @answer], local: true do |f|
   = render partial: "/layouts/errors", locals: { record: @answer }
 
   .field
     .label Title:
-    %input{ type: "text", name: "title", placeholder: "Brief answer", value: @answer.title, maxlength: 255 }
+    = f.text_field :title, placeholder: "Brief answer", maxlength: 255
 
   .field
     .label Body:
-    %textarea{ name: "body", placeholder: "tl;dr answer, markdown enabled", maxlength: 65535 }
-      = @answer.body
+    = f.text_area :body, placeholder: "tl;dr answer, markdown enabled", maxlength: 65535
 
   .field.actions
     = f.submit "Answer"

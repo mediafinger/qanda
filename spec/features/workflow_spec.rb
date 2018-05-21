@@ -40,8 +40,8 @@ RSpec.feature "Workflow", type: :feature do
   def ask_a_question
     click_link "Ask Question"
 
-    fill_in "title", with: "Why?"
-    fill_in "body", with: "Why did the lucky stiff disappear? And where is he now?"
+    fill_in "question_title", with: "Why?"
+    fill_in "question_body", with: "Why did the lucky stiff disappear? And where is he now?"
     click_button "Submit"
 
     expect(page).to have_text("Question was successfully created.")
@@ -53,8 +53,8 @@ RSpec.feature "Workflow", type: :feature do
     click_link "Questions"
     click_link "Why?"
 
-    fill_in "title", with: "Because"
-    fill_in "body", with: "He could not handle his fame."
+    fill_in "answer_title", with: "Because"
+    fill_in "answer_body", with: "He could not handle his fame."
     click_button "Answer"
 
     expect(page).to have_text("Answer was successfully created.")
