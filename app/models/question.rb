@@ -5,6 +5,8 @@ class Question < ApplicationRecord
 
   ALLOWED_SEARCH_FIELDS = %i[body title].freeze
 
+  # documentation: https://github.com/Casecommons/pg_search
+  # some commented out lines have been left in here, as this are features I would love to add next
   pg_search_scope :search_for, lambda { |fields, query, find_any|
     raise ArgumentError, "Array expected, 'fields' was: #{fields}" unless fields.is_a?(Array)
     raise ArgumentError, "String expected, 'query' was: #{query}" unless query.is_a?(String)
