@@ -160,6 +160,26 @@ RSpec.describe Question, type: :model do
       end
     end
 
+    # tsearch: { negation: true } # this seems to be incompatible with :any_word or dictionary: "english"
+    xcontext "when excluding search terms from result" do
+      let(:fields)   { [:body, :title] }
+      let(:find_any) { false }
+      let(:query)    { "disappear !lucky" }
+
+      it { expect(search.to_a).to match_array [question_2] }
+    end
+
+    # tsearch: { dictionary: "english" } # this would allow for stemming, but does not allow to find terms like "why"
+    xcontext "when searching with similar forms (stemming support)" do
+      let(:fields)   { [:body, :title] }
+      let(:find_any) { false }
+      let(:query)    { "student teachers joining swim" }
+
+      let!(:question_3) { FactoryBot.create(:question, title: "Any students want to join me?", body: "There will be swimming lessons with a teacher.") }
+
+      it { expect(search).to eq [question_3] }
+    end
+
     context "when passing invalid parameters" do
       context "when fields is not an array" do
         let(:fields) { :body }
