@@ -16,6 +16,7 @@ gem "haml-rails", "~> 1.0"
 gem "jbuilder", "~> 2.5"
 gem "omniauth-google-oauth2", "~>  0.5.3" # Alternative with more starts on GitHub: # gem 'google-api-client', '~> 0.11'
 gem "pg", ">= 0.18", "< 2.0"
+gem "pg_search", "~> 2.1"
 gem "puma", "~> 3.11"
 gem "redcarpet", "~> 3.4"
 gem "rouge", "~> 3.1"

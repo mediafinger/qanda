@@ -46,4 +46,140 @@ RSpec.describe Question, type: :model do
       it_behaves_like "validation failure"
     end
   end
+
+  describe ".search_for" do
+    subject(:search) { described_class.search_for(fields, query) }
+
+    let(:question_1) { FactoryBot.create(:question) }
+    let(:question_2) { FactoryBot.create(:question, :markdown) }
+
+    context "when the query string is part of a title" do
+      let(:query) { "markdown" }
+
+      context "when searched in titles" do
+        let(:fields) { [:title] }
+
+        it { expect(search).to eq [question_2] }
+      end
+
+      context "when searched in bodies and titles" do
+        let(:fields) { [:body, :title] }
+
+        it { expect(search).to eq [question_2] }
+      end
+
+      context "when searched in bodies" do
+        let(:fields) { [:body] }
+
+        it { expect(search).to eq [] }
+      end
+    end
+
+    context "when the query string is part of a body" do
+      let(:query) { "stiff" }
+
+      context "when searched in titles" do
+        let(:fields) { [:title] }
+
+        it { expect(search).to eq [] }
+      end
+
+      context "when searched in bodies and titles" do
+        let(:fields) { [:body, :title] }
+
+        it { expect(search).to eq [question_1] }
+      end
+
+      context "when searched in bodies" do
+        let(:fields) { [:body] }
+
+        it { expect(search).to eq [question_1] }
+      end
+    end
+
+    context "when the query string is part of a title and a body" do
+      let(:query) { "disappear" }
+
+      context "when searched in titles" do
+        let(:fields) { [:title] }
+
+        it { expect(search).to eq [question_2] }
+      end
+
+      context "when searched in bodies and titles" do
+        let(:fields) { [:body, :title] }
+
+        it { expect(search).to match_array [question_1, question_2] }
+      end
+
+      context "when searched in bodies" do
+        let(:fields) { [:body] }
+
+        it { expect(search).to eq [question_1] }
+      end
+    end
+
+    context "when the query string is part of title and body of one question" do
+      let(:query) { "why" }
+
+      context "when searched in titles" do
+        let(:fields) { [:title] }
+
+        it { expect(search).to eq [question_1] }
+      end
+
+      context "when searched in bodies and titles" do
+        let(:fields) { [:body, :title] }
+
+        it { expect(search).to match_array [question_1] }
+      end
+
+      context "when searched in bodies" do
+        let(:fields) { [:body] }
+
+        it { expect(search).to eq [question_1] }
+      end
+    end
+
+    context "when passing invalid parameters" do
+      context "when fields is not an array" do
+        let(:fields) { :body }
+        let(:query)  { "anything" }
+
+        it { expect { search }.to raise_error(ArgumentError, "Array expected, 'fields' was: #{fields}") }
+      end
+
+      context "when fields does not contain allowed fields" do
+        let(:fields) { [:user, :id] }
+        let(:query)  { "anything" }
+
+        it "raises an error message containing the allowed fields" do
+          expect { search }.to raise_error(
+            ArgumentError, "Expected 'fields' to contain at least one of #{described_class::ALLOWED_SEARCH_FIELDS}"
+          )
+        end
+      end
+
+      context "when query is not a string" do
+        let(:fields) { [:body, :title] }
+        let(:query)  { 123 }
+
+        it { expect { search }.to raise_error(ArgumentError, "String expected, 'query' was: #{query}") }
+      end
+
+      context "when query is too short" do
+        let(:fields) { [:body, :title] }
+        let(:query)  { "ab" }
+
+        it { expect { search }.to raise_error(ArgumentError, "query too short, min 3 characters expected") }
+      end
+
+      context "when query is too long" do
+        let(:fields) { [:body, :title] }
+        let(:query)  { "why " * 26 }
+
+        it { expect { search }.to raise_error(ArgumentError, "query too long, max 100 characters allowed") }
+      end
+    end
+  end
 end
