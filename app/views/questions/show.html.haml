@@ -1,5 +1,5 @@
 .question
-  .q-title= render_as_markdown(@question.title)
+  .q-title= @question.title
   .username= @question.user.name
   .q-body= render_as_markdown(@question.body)
 
@@ -8,6 +8,6 @@
 .answers
   - @question.answers.to_a.each do |answer|
     .answer
-      .a-title= render_as_markdown(answer.title)
+      .a-title= answer.title
       .username= answer.user.name
       .a-body= render_as_markdown(answer.body)
