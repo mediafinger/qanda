@@ -2,9 +2,7 @@
 
 class SessionsController < ApplicationController
   def create
-    Rails.logger.debug(ap(request.env["omniauth.auth"])) # TODO: remove
-
-    user = User.find_or_create_from(request.env["omniauth.auth"]) # TODO: handle ActiveRecord::RecordInvalid
+    user = User.find_or_create_from(request.env["omniauth.auth"])
     session[:user_id] = user.id
 
     redirect_to root_path # TODO: redirect to last page
