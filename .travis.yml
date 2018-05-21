@@ -1,0 +1,21 @@
+addons:
+  postgresql: "9.4"
+
+services:
+  - postgresql
+
+language: ruby
+
+rvm:
+  - 2.5
+  - 2.4
+  - 2.3
+
+bundler_args: --without production --binstubs --jobs 6 --retry 3
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - RAILS_ENV=test bundle exec rake db:migrate
+
+script: bundle exec rake ci
