@@ -37,6 +37,7 @@ module Draft
       g.stylesheets = false
 
       g.controller_specs false
+      g.factory_bot false
       g.helper_specs false
       g.view_specs false
 

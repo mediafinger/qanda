@@ -12,19 +12,17 @@ end
 
 RSpec.describe Answer, type: :model do
   describe ".create" do
-    subject(:answer) { described_class.new(params) }
-
-    let(:params) do
-      {
+    subject(:answer) do
+      described_class.new(
         user: user,
         question: question,
         body: body,
-        title: title,
-      }
+        title: title
+      )
     end
 
-    let(:user)     { User.create!(name: "Harry", email: "harry@example.com", provider: "google", provider_uid: "1234") }
-    let(:question) { Question.create!(user_id: user.id, title: "Why?", body: "Can anybody tell me?") }
+    let(:user)     { FactoryBot.create(:user) }
+    let(:question) { FactoryBot.create(:question) }
     let(:title)    { "Because!" }
     let(:body)     { "That's how it is." }
 
@@ -32,9 +30,9 @@ RSpec.describe Answer, type: :model do
       it { expect(answer).to be_valid }
     end
 
-    context "when the User does not exist" do
-      let(:user)          { User.new(name: "John Doe") }
-      let(:question)      { Question.new(user_id: user.id, title: "Why?", body: "Can anybody tell me?") }
+    context "when the User does not exist in the database" do
+      let(:user)          { FactoryBot.build(:user) }
+      let(:question)      { FactoryBot.create(:question) }
       let(:field)         { :user_id }
       let(:error_message) { /can't be blank/ }
 

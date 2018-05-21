@@ -12,17 +12,9 @@ end
 
 RSpec.describe Question, type: :model do
   describe ".create" do
-    subject(:question) { described_class.new(params) }
+    subject(:question) { FactoryBot.build(:question, user: user, body: body, title: title) }
 
-    let(:params) do
-      {
-        user: user,
-        body: body,
-        title: title,
-      }
-    end
-
-    let(:user)  { User.create!(name: "Harry", email: "harry@example.com", provider: "google", provider_uid: "1234") }
+    let(:user)  { FactoryBot.create(:user) }
     let(:title) { "Why?" }
     let(:body)  { "Why did the lucky stiff disappear?" }
 
