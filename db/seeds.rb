@@ -81,6 +81,36 @@ cv = <<~CURRICULUMVITAE
 
 CURRICULUMVITAE
 
+code = <<~CODE
+  By default, pg_search ranks results based on the `:tsearch` similarity between
+  the searchable text and the query. To use a different ranking algorithm, you
+  can pass a `:ranked_by` option to pg_search_scope.
+
+  ```ruby
+  class Image < ApplicationRecord
+    include PgSearch
+
+    pg_search_scope :search_by_tsearch_but_rank_by_trigram,
+                    :against => :title,
+                    :using => [:tsearch],
+                    :ranked_by => ":trigram"
+  ```
+
+  Note that `:ranked_by` using a String to represent the ranking expression. This
+  allows for more complex possibilities. Strings like `":tsearch"`, `":trigram"`,
+  and `":dmetaphone"` are automatically expanded into the appropriate SQL
+  expressions.
+
+  ```ruby
+  # Weighted ranking to balance multiple approaches
+  :ranked_by => ":dmetaphone + (0.25 * :trigram)"
+
+  # A more complex example, where books.num_pages is an integer column in the table itself
+  :ranked_by => "(books.num_pages * :trigram) + (:tsearch / 2.0)"
+  ```
+CODE
+
+FactoryBot.create(:question, title: "Code syntax highlighting", body: code, user: user)
 q3 = FactoryBot.create(:question, user: andy, title: "Do you want to read my CV?", body: cv)
 q2 = FactoryBot.create(:question, :markdown, user: andy)
 FactoryBot.create(:question, user: andy)
