@@ -175,7 +175,13 @@ RSpec.describe Question, type: :model do
       let(:find_any) { false }
       let(:query)    { "student teachers joining swim" }
 
-      let!(:question_3) { FactoryBot.create(:question, title: "Any students want to join me?", body: "There will be swimming lessons with a teacher.") }
+      let!(:question_3) do
+        FactoryBot.create(
+          :question,
+          title: "Any students want to join me?",
+          body: "There will be swimming lessons with a teacher."
+        )
+      end
 
       it { expect(search).to eq [question_3] }
     end

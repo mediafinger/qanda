@@ -1,0 +1,16 @@
+= form_with url: search_path, method: :post, local: true do |f|
+  .field
+    .label.inline Search in titles:
+    = f.check_box :search_in_titles, name: :title, checked: true
+
+  .field
+    .label.inline Search in bodies:
+    = f.check_box :search_in_bodies, name: :body, checked: true
+
+  .field
+    .label.inline Any word can match:
+    = f.check_box :find_any_word, checked: @find_any
+
+  .field
+    = f.text_field :query, value: @query, maxlength: 100
+    = f.submit "Search"

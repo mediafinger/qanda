@@ -32,8 +32,11 @@ form {
 
 .label {
   color: #ccc;
-  /* display: inline; */
   vertical-align: top;
+}
+
+.label.inline {
+  display: inline;
 }
 
 input[type=text], textarea {
@@ -86,7 +89,6 @@ textarea {
 .a-title, .q-title {
   font-size: 1.2em;
   font-weight: bold;
-  margin-bottom: -1em;
 }
 
 .a-body, .q-body {

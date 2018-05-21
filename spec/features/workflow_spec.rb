@@ -12,6 +12,7 @@ RSpec.feature "Workflow", type: :feature do
     login_succesfully
     ask_a_question
     answer_a_question
+    search_a_question
 
     logout
   end
@@ -63,6 +64,32 @@ RSpec.feature "Workflow", type: :feature do
 
     expect(page).not_to have_text("List of all questions")
   end
+
+  #rubocop:disable Metrics/AbcSize
+  def search_a_question
+    click_link "Search"
+
+    expect(page).to have_field("search_in_titles", checked: true)
+    expect(page).to have_field("search_in_bodies", checked: true)
+    expect(page).to have_field("find_any_word", checked: true)
+
+    uncheck "search_in_bodies"
+    uncheck "find_any_word"
+    fill_in "query", with: "the lucky stiff"
+    click_button "Search"
+
+    expect(page).to have_text("No search results for query: the lucky stiff")
+    expect(page).to have_field("search_in_titles", checked: true)
+    expect(page).to have_field("search_in_bodies", checked: true)
+    expect(page).to have_field("find_any_word", checked: false)
+    expect(page).to have_field("query", with: "the lucky stiff")
+
+    click_button "Search"
+
+    expect(page).to have_text("Your search results")
+    expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
+  end
+  #rubocop:enable Metrics/AbcSize
 
   def logout
     click_link "Logout"

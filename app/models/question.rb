@@ -24,7 +24,7 @@ class Question < ApplicationRecord
           # negation: true,        # this seems to be incompatible with :any_word or dictionary: "english"
           # dictionary: "english", # this would allow for stemming, but does not allow to find terms like "why"
           # tsvector_column: fields.map { |field| "#{field}_tsvector" }, # config.active_record.schema_format = :sql
-        }
+        },
       },
     }
   }
