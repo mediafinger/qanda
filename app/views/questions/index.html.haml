@@ -6,4 +6,4 @@
     .question
       .q-title= link_to question.title, question_path(question)
       .username= question.user.name
-      .q-body= render_as_markdown(question.body)
+      .q-body.limited= render_as_markdown(question.body)

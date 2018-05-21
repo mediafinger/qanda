@@ -12,6 +12,11 @@ a {
   color: #66a;
 }
 
+blockquote {
+  color: #999;
+  font-style: italic;
+}
+
 div, form, .success, .failure {
   padding: 0.3em;
 }
@@ -97,8 +102,9 @@ textarea {
   margin-bottom: 2em;
 }
 
-.q-body {
-  font-style: italic;
+.q-body.limited {
+  max-height: 24em;
+  overflow: hidden;
 }
 
 .username {
