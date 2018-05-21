@@ -48,10 +48,12 @@ RSpec.describe Question, type: :model do
   end
 
   describe ".search_for" do
-    subject(:search) { described_class.search_for(fields, query) }
+    subject(:search) { described_class.search_for(fields, query, find_any) }
 
-    let(:question_1) { FactoryBot.create(:question) }
-    let(:question_2) { FactoryBot.create(:question, :markdown) }
+    let(:find_any)   { true }
+
+    let!(:question_1) { FactoryBot.create(:question) }
+    let!(:question_2) { FactoryBot.create(:question, :markdown) }
 
     context "when the query string is part of a title" do
       let(:query) { "markdown" }
@@ -138,6 +140,23 @@ RSpec.describe Question, type: :model do
         let(:fields) { [:body] }
 
         it { expect(search).to eq [question_1] }
+      end
+    end
+
+    context "when searching for multiple words" do
+      let(:fields) { [:body, :title] }
+      let(:query) { "lucky stiff" }
+
+      context "when expecting the result to contain all words" do
+        let(:find_any) { false }
+
+        it { expect(search).to eq [question_1] }
+      end
+
+      context "when expecting the result to contain any word" do
+        let(:find_any) { true }
+
+        it { expect(search).to match_array [question_1, question_2] }
       end
     end
 

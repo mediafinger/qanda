@@ -5,7 +5,7 @@ class Question < ApplicationRecord
 
   ALLOWED_SEARCH_FIELDS = %i[body title].freeze
 
-  pg_search_scope :search_for, lambda { |fields, query|
+  pg_search_scope :search_for, lambda { |fields, query, find_any|
     raise ArgumentError, "Array expected, 'fields' was: #{fields}" unless fields.is_a?(Array)
     raise ArgumentError, "String expected, 'query' was: #{query}" unless query.is_a?(String)
     raise ArgumentError, "query too short, min 3 characters expected" unless query.length >= 3
@@ -14,7 +14,15 @@ class Question < ApplicationRecord
     allowed_fields = fields.select { |field| ALLOWED_SEARCH_FIELDS.include?(field) }
     raise ArgumentError, "Expected 'fields' to contain at least one of #{ALLOWED_SEARCH_FIELDS}" if allowed_fields.empty?
 
-    { against: allowed_fields, query: query }
+    {
+      against: allowed_fields,
+      query: query,
+      using: {
+        tsearch: {
+          any_word: !!find_any,
+        }
+      },
+    }
   }
 
   belongs_to :user
