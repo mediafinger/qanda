@@ -6,7 +6,7 @@ source "https://rubygems.org"
 # git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # For heroku:
-# ruby '2.5.0'
+# ruby '2.5.1'
 
 gem "rails", "~> 5.2.0"
 
@@ -14,7 +14,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "dotenv-rails", "~> 2.4"
 gem "haml-rails", "~> 1.0"
 gem "jbuilder", "~> 2.5"
-gem "omniauth-google-oauth2", "~>  0.5.3" # Alternative with more starts on GitHub: # gem 'google-api-client', '~> 0.11'
+gem "omniauth-google-oauth2", "~>  0.5.3"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pg_search", "~> 2.1"
 gem "puma", "~> 3.11"
