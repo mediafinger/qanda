@@ -1,14 +1,7 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-
-RSpec.shared_examples "validation failure" do
-  it "does not initialize a Answer" do
-    expect(answer.valid?).to be false
-    expect(answer.errors.messages[field].join(",")).to match(error_message)
-    expect { answer.save! }.to raise_error(ActiveRecord::RecordInvalid)
-  end
-end
+require "support/validation_failure"
 
 RSpec.describe Answer, type: :model do
   describe ".create" do
