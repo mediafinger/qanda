@@ -14,11 +14,11 @@ On your command line run:
 
 `git clone git@github.com:mediafinger/qanda.git`
 
-Change to the newly create directory and run:
+Change to the newly created directory and run:
 
 `bundle install`
 
-Which needs **Ruby** (the app was tested with the current Ruby version `2.5.1` ) and the **gem bundler**.  
+Which needs **Ruby** (the app was tested with the current Ruby version `2.6.2` ) and the **gem bundler**.  
 When all gems have been installed, execute:
 
 `bin/rails db:setup`
@@ -53,7 +53,7 @@ Before starting the server, you will have to add your **Google Developer credent
 
 This file is listed in _.gitignore_ so you won't accidentally publish your secrets. As the name suggests, it will only be loaded in development mode.
 
-Please add this code together with you `client_id` and your `secret` to the new file:
+Please add this code together with your `client_id` and your `secret` to the new file:
 
 ```shell
 export GOOGLE_OAUTH2_CLIENT_ID=
@@ -99,7 +99,7 @@ I've built this app the Rails (5) way. And to my own surprise I don't had to add
 
 ### Dependencies
 
-* This app was developed and tested under `Ruby 2.5.0 and 2.5.1`. Other versions might or might not work with it.
+* This app was developed and tested under `Ruby 2.5.0` and later updated to `2.6.1`. Other versions might or might not work.
 * It uses `Rails 5.2` and needs a `Postgres database`, as the fulltext search relies on Postgres features.
 * Google authentication is done with `omniauth-google-oauth2` which depends on `omniauth`.
 * The configuration relies on the `dotenv-rails` gem. It was not tested in a Docker environment (but PRs are always welcome).
