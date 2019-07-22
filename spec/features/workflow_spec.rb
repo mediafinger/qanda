@@ -23,14 +23,14 @@ RSpec.feature "Workflow", type: :feature do
     mock_omniauth_invalid
 
     visit "/"
-    click_link "Please login with Google to continue"
+    click_button "Please login with Google to continue"
 
-    expect(page).to have_link("Please login with Google to continue")
+    expect(page).to have_button("Please login with Google to continue")
   end
 
   def login_succesfully
     mock_omniauth
-    click_link "Please login with Google to continue"
+    click_button "Please login with Google to continue"
 
     expect(page).to have_text("Harry Potter")
     expect(page).to have_link("Logout")
@@ -93,7 +93,7 @@ RSpec.feature "Workflow", type: :feature do
 
   def logout
     click_link "Logout"
-    expect(page).to have_link("Please login with Google to continue")
+    expect(page).to have_button("Please login with Google to continue")
   end
 
   # helper methods

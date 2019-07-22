@@ -13,8 +13,13 @@ if %w(development test).include? Rails.env
   require "rspec/core/rake_task"
   require "rubocop"
 
-  Bundler::Audit::Task.new
   RSpec::Core::RakeTask.new(:rspec)
+
+  desc "Check for CVEs"
+  task bundle_audit: :environment do
+    sh "bundle exec bundle audit update"
+    sh "bundle exec bundle audit check --ignore CVE-2015-9284" # OmniAuth CVE, fixed with gem omniauth-rails_csrf_protection
+  end
 
   desc "Run rubocop"
   task rubocop: :environment do
@@ -28,5 +33,5 @@ if %w(development test).include? Rails.env
   end
 
   desc "Run rubocop and the specs"
-  task ci: %w(rubocop bundle:audit rspec)
+  task ci: %w(rubocop rspec bundle_audit)
 end

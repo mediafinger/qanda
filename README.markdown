@@ -30,8 +30,8 @@ This will create the _development_ and _test_ database. **You need to have _Post
 `bin/rails ci` will execute:
 
 * `rubocop` - to ensure a consistent style
-* `bundle:audit` - to check for vulnerabilities in the gems
 * `rspec` - to run all existing specs
+* `bundle_audit` - to check for vulnerabilities in the gems
 
 You can also just run rspec alone: `bundle exec rspec spec`
 

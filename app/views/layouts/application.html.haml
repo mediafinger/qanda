@@ -34,5 +34,4 @@
       = yield
 
     - else
-      %a{ href: "/auth/google_oauth2", title: "Sign in with Google" }
-        Please login with Google to continue
+      = button_to "Please login with Google to continue", "/auth/google_oauth2", method: :post
