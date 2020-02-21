@@ -6,7 +6,7 @@ source "https://rubygems.org"
 # git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # For heroku:
-# ruby '2.6.2'
+# ruby "2.6.5"
 
 gem "rails", "~> 5.2.3"
 
@@ -32,8 +32,10 @@ group :development, :test do
   gem "capybara", "~> 3.16"
   gem "factory_bot_rails", "~> 4.8"
   gem "rspec-rails", "~> 3.7"
-  gem "rubocop", "0.55.0", require: false
-  gem "rubocop-rspec", "~> 1.25"
+  gem "rubocop", "0.79.0", require: false
+  gem "rubocop-performance", "~> 1.5"
+  gem "rubocop-rails", "~> 2.4"
+  gem "rubocop-rspec", "~> 1.36"
 end
 
 group :development do

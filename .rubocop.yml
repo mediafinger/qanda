@@ -11,9 +11,6 @@ AllCops:
 Capybara/FeatureMethods:
   Enabled: false
 
-FactoryBot/StaticAttributeDefinedDynamically:
-  Enabled: false
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*.rb'
@@ -21,11 +18,14 @@ Lint/AmbiguousBlockAssociation:
 Layout/EmptyLineAfterMagicComment:
   Enabled: true
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Layout/LeadingCommentSpace:
   Enabled: false
+
+Layout/LineLength:
+  Max: 125
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
@@ -44,9 +44,6 @@ Metrics/ClassLength:
 
 Metrics/CyclomaticComplexity:
   Max: 10
-
-Metrics/LineLength:
-  Max: 125
 
 Metrics/MethodLength:
   Max: 20

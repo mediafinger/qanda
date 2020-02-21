@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     end
 
     context "when creation successful" do
-      it { expect { user }.to change { User.count }.by(1) }
+      it { expect { user }.to change { described_class.count }.by(1) }
 
       it { expect(user.email).to        eq(auth.dig(:info, :email)) }
       it { expect(user.name).to         eq(auth.dig(:info, :name)) }
@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
         described_class.create!(provider: auth[:provider], provider_uid: auth[:uid], name: "Harry", email: "h@example.com")
       end
 
-      it { expect { user }.not_to change { User.count } }
+      it { expect { user }.not_to change { described_class.count } }
       it { expect(user.id).to eq(user_1.id) }
 
       it "updates current user information" do

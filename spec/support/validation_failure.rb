@@ -2,7 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/NamedSubject
 RSpec.shared_examples "validation failure" do
   it "does not initialize a record" do
     expect(subject.valid?).to be false
@@ -10,4 +9,3 @@ RSpec.shared_examples "validation failure" do
     expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid)
   end
 end
-# rubocop:enable RSpec/NamedSubject
