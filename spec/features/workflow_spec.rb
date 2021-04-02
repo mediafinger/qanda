@@ -3,9 +3,6 @@
 require "rails_helper"
 
 RSpec.feature "Workflow", type: :feature do
-  before do
-  end
-
   scenario "User logs in, asks a question, and logs out again" do
     login_with_invalid_credentials
 
