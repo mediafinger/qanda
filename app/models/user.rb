@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :answers
-  has_many :questions
+  has_many :answers, dependent: :nullify
+  has_many :questions, dependent: :nullify
 
   validates :email, presence: true
   validates :name, presence: true

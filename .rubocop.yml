@@ -51,6 +51,18 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 8
 
+Rails/HelperInstanceVariable:
+  Exclude:
+    - app/helpers/redcarpet_helper.rb
+
+Rails/OutputSafety:
+  Exclude:
+    - app/helpers/redcarpet_helper.rb
+
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
+
 RSpec/AlignLeftLetBrace:
   Enabled: true
 

@@ -32,7 +32,7 @@ class Question < ApplicationRecord
   }
 
   belongs_to :user
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
   validates :user_id, presence: true
   validates :body, length: { in: 3..65535 }

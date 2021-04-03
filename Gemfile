@@ -27,15 +27,17 @@ gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
   gem "amazing_print", "~> 1.3"
-  gem "bundler-audit", "~> 0.6"
+  gem "bundler-audit", "~> 0.8"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 3.16"
   gem "factory_bot_rails", "~> 4.8"
+  gem "haml_lint", "~> 0.37"
   gem "rspec-rails", "~> 5.0"
   gem "rubocop", "0.79.0", require: false
   gem "rubocop-performance", "~> 1.5"
   gem "rubocop-rails", "~> 2.4"
   gem "rubocop-rspec", "~> 1.36"
+  gem "scss_lint", "~> 0.59"
 end
 
 group :development do
