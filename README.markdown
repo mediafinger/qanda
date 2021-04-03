@@ -18,7 +18,7 @@ Change to the newly created directory and run:
 
 `bundle install`
 
-Which needs **Ruby** (the app was tested with the Ruby versions `2.6.5` and `2.7.2`) and the **gem bundler**.  
+Which needs **Ruby** (the app was tested with the Ruby versions `2.5`, `2.6`, `2.7` and `3.0`) and the **gem bundler**.  
 When all gems have been installed, execute:
 
 `bin/rails db:setup`
@@ -99,8 +99,8 @@ I've built this app the Rails (5) way. And to my own surprise I don't had to add
 
 ### Dependencies
 
-* This app was developed and tested under `Ruby 2.5.0` and later updated to `2.6.1`. Other versions might or might not work.
-* It uses `Rails 5.2` and needs a `Postgres database`, as the fulltext search relies on Postgres features.
+* This app was developed and tested under `Ruby 2.5.0` and later updated to `2.6.1`, `2.7.2` and `3.0.0. Other versions might or might not work.
+* It used `Rails 5.2`, was then updated to `Rails 6.1` and needs a `Postgres database`, as the fulltext search relies on Postgres features.
 * Google authentication is done with `omniauth-google-oauth2` which depends on `omniauth`.
 * The configuration relies on the `dotenv-rails` gem. It was not tested in a Docker environment (but PRs are always welcome).
 * Markdown rendering is done with the `redcarpet` gem and the `rouge` plugin is used for code syntax highlighting.
