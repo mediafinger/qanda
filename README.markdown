@@ -18,7 +18,7 @@ Change to the newly created directory and run:
 
 `bundle install`
 
-Which needs **Ruby** (the app was tested with the current Ruby version `2.6.5` ) and the **gem bundler**.  
+Which needs **Ruby** (the app was tested with the Ruby versions `2.6.5` and `2.7.2`) and the **gem bundler**.  
 When all gems have been installed, execute:
 
 `bin/rails db:setup`
