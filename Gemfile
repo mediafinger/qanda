@@ -2,13 +2,17 @@
 
 source "https://rubygems.org"
 
-# To use https when pointing to github repos:
-# git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # For heroku:
 # ruby "3.0.0"
 
-gem "rails", "~> 6.1"
+# NOTE: update to "7.0.0" when it was released
+# rails_version = "7.0.0.alpha" # rails master
+gem "actionpack", github: "rails/rails" # , "~> #{rails_version}"
+gem "activemodel", github: "rails/rails" # , "~> #{rails_version}"
+gem "activerecord", github: "rails/rails" # , "~> #{rails_version}"
+gem "railties", github: "rails/rails" # , "~> #{rails_version}"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "dotenv-rails", "~> 2.4"

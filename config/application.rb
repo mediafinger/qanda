@@ -24,7 +24,7 @@ Bundler.require(*Rails.groups)
 module Qanda
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -34,7 +34,7 @@ module Qanda
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
 
-      # config.time_zone = "Europe / Berlin" # TODO: check if valid
+      # config.time_zone = "Europe/Berlin"
       # config.eager_load_paths << Rails.root.join("lib")
 
       g.helper false
