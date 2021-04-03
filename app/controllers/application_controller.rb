@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   def authenticate
-    redirect_to :login unless current_user.present?
+    redirect_to :login if current_user.blank?
   end
 
   def current_user
