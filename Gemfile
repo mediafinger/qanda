@@ -25,7 +25,7 @@ gem "pg_search", "~> 2.1"
 gem "puma", "~> 5.2"
 gem "redcarpet", "~> 3.4"
 gem "rouge", "~> 3.1"
-gem "sass-rails", "~> 6.0"
+# gem "sass-rails", "~> 6.0" # NOTE: depends on sprockets, which expects CoffeeScript
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
@@ -43,6 +43,7 @@ group :development, :test do
   gem "rubocop-rake", "~> 0.5"
   gem "rubocop-rspec", "~> 2.2"
   gem "scss_lint", "~> 0.59", require: false
+  gem "webpacker"
 end
 
 group :development do
