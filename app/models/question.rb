@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Question < ApplicationRecord
-  include PgSearch
+  include PgSearch::Model
 
-  ALLOWED_SEARCH_FIELDS = %i[body title].freeze
+  ALLOWED_SEARCH_FIELDS = %i(body title).freeze
 
   # documentation: https://github.com/Casecommons/pg_search
   # some commented out lines have been left in here, as this are features I would love to add next

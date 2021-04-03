@@ -10,6 +10,8 @@ require "active_record/railtie"
 # require "active_storage/engine"
 require "action_controller/railtie"
 # require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 require "action_view/railtie"
 # require "action_cable/engine"
 require "sprockets/railtie"
@@ -22,7 +24,7 @@ Bundler.require(*Rails.groups)
 module Qanda
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 6.1
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -31,6 +33,9 @@ module Qanda
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
+
+      # config.time_zone = "Europe / Berlin" # TODO: check if valid
+      # config.eager_load_paths << Rails.root.join("lib")
 
       g.helper false
       g.javascripts false

@@ -8,11 +8,11 @@ source "https://rubygems.org"
 # For heroku:
 # ruby "2.6.5"
 
-gem "rails", "~> 5.2.3"
+gem "rails", "~> 6.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "dotenv-rails", "~> 2.4"
-gem "haml-rails", "~> 1.0"
+gem "haml-rails", "~> 2.0"
 gem "jbuilder", "~> 2.5"
 gem "omniauth-google-oauth2", "~>  0.5"
 gem "omniauth-rails_csrf_protection", "~>  0.1"
@@ -26,12 +26,12 @@ gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
-  gem "awesome_print", "~> 1.8"
+  gem "amazing_print", "~> 1.3"
   gem "bundler-audit", "~> 0.6"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 3.16"
   gem "factory_bot_rails", "~> 4.8"
-  gem "rspec-rails", "~> 3.7"
+  gem "rspec-rails", "~> 5.0"
   gem "rubocop", "0.79.0", require: false
   gem "rubocop-performance", "~> 1.5"
   gem "rubocop-rails", "~> 2.4"
@@ -44,4 +44,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

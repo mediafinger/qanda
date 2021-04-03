@@ -8,7 +8,7 @@ require_relative "config/application"
 Rails.application.load_tasks
 
 if %w(development test).include? Rails.env
-  require "awesome_print"
+  require "amazing_print"
   require "bundler/audit/task"
   require "rspec/core/rake_task"
   require "rubocop"

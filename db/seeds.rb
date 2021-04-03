@@ -88,7 +88,7 @@ code = <<~CODE
 
   ```ruby
   class Image < ApplicationRecord
-    include PgSearch
+    include PgSearch::Model
 
     pg_search_scope :search_by_tsearch_but_rank_by_trigram,
                     :against => :title,

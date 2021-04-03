@@ -1,7 +1,7 @@
 require: rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   DisplayCopNames: true
   Exclude:
     - config.ru
@@ -103,8 +103,16 @@ Style/NumericLiterals:
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%w': '()'
-    '%W': '()'
+    default: ()
+    "%": ()
+    "%i": ()
+    "%q": ()
+    "%Q": ()
+    "%r": "{}"
+    "%s": ()
+    "%w": ()
+    "%W": ()
+    "%x": ()
 
 Style/PerlBackrefs:
   Enabled: false
