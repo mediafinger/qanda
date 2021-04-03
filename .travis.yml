@@ -21,7 +21,7 @@ rvm:
 
 jobs:
   allow_failures:
-    - rvm: 3.0
+    # - rvm: 3.0
 
 before_install:
   - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
