@@ -25,7 +25,9 @@ if %w(development test).include? Rails.env
   RSpec::Core::RakeTask.new(:rspec)
 
   # setup taks rubocop and rubocop:auto_correct
-  RuboCop::RakeTask.new
+  RuboCop::RakeTask.new do |task|
+    task.options = ["-c.rubocop.yml"]
+  end
 
   # setup task scss_lint
   SCSSLint::RakeTask.new(:scss_lint) do |t|

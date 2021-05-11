@@ -33,7 +33,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.1"
   gem "haml_lint", "~> 0.37", require: false
   gem "rspec-rails", "~> 5.0"
-  gem "rubocop", "1.12.0", require: false
+  gem "rubocop", "1.14.0", require: false
   gem "rubocop-performance", "~> 1.10"
   gem "rubocop-rails", "~> 2.9"
   gem "rubocop-rake", "~> 0.5"
