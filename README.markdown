@@ -6,7 +6,7 @@ A Rails app that implements:
 * asking and answering questions (with Markdown support)
 * full-text search in titles and bodies of the questions
 
-[![Build Status](https://travis-ci.com/mediafinger/qanda.svg?branch=master)](https://travis-ci.com/mediafinger/qanda)
+[![Build Status](https://github.com/mediafinger/qanda/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/mediafinger/qanda/actions/workflows/main.yml)
 
 ## Installation
 
