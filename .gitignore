@@ -11,4 +11,5 @@
 /public/packs-test/*
 /spec/examples.txt
 /tmp/*
+/vendor/*
 /yarn-error.log
