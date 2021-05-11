@@ -5,7 +5,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest] # macos-latest
         ruby: ['2.7', '3.0'] # Due to https://github.com/actions/runner/issues/849, we have to use quotes
     runs-on: ${{ matrix.os }}
     steps:
