@@ -8,7 +8,7 @@ source "https://rubygems.org"
 # For heroku:
 # ruby "3.0.0"
 
-gem "rails", "~> 6.1"
+gem "rails", "~> 7.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "dotenv-rails", "~> 2.4"
