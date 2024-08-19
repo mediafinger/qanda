@@ -10,7 +10,15 @@ source "https://rubygems.org"
 
 gem "rails", "~> 6.1"
 
-gem "bootsnap", ">= 1.1.0", require: false
+# gems that were removed from Ruby's standard library
+# listing them here will be redundant, once the rails version is updated
+gem "base64"
+gem "bigdecimal"
+gem "matrix"
+gem "mutex_m"
+gem "observer"
+
+# gem "bootsnap", ">= 1.1.0", require: false
 gem "dotenv-rails", "~> 2.4"
 gem "haml-rails", "~> 2.0"
 gem "jbuilder", "~> 2.5"
