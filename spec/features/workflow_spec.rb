@@ -3,6 +3,7 @@
 require "rails_helper"
 
 RSpec.feature "Workflow", type: :feature do
+  # rubocop:disable RSpec/NoExpectationExample
   scenario "User logs in, asks a question, and logs out again" do
     login_with_invalid_credentials
 
@@ -13,6 +14,7 @@ RSpec.feature "Workflow", type: :feature do
 
     logout
   end
+  # rubocop:enable RSpec/NoExpectationExample
 
   # workflows
   #

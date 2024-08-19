@@ -5,7 +5,7 @@ puts "Loading seeds..."
 user = FactoryBot.create(:user)
 andy = FactoryBot.create(:user, name: "Andreas Finger", email: "andy@mediafinger.com")
 
-FactoryBot.create(:question, title: "Why do you like", body: "Working at Cookpad?", user: user)
+FactoryBot.create(:question, title: "Why do you like", body: "Working at Cookpad?", user:)
 
 cv = <<~CURRICULUMVITAE
   # Señor Developer
@@ -110,12 +110,12 @@ code = <<~CODE
   ```
 CODE
 
-FactoryBot.create(:question, title: "Code syntax highlighting", body: code, user: user)
+FactoryBot.create(:question, title: "Code syntax highlighting", body: code, user:)
 q3 = FactoryBot.create(:question, user: andy, title: "Do you want to read my CV?", body: cv)
 q2 = FactoryBot.create(:question, :markdown, user: andy)
 FactoryBot.create(:question, user: andy)
 
-Answer.create!(question: q2, user: user, title: "Don't worry!", body: "Your **markdown** looks just _fine_!")
+Answer.create!(question: q2, user:, title: "Don't worry!", body: "Your **markdown** looks just _fine_!")
 Answer.create!(question: q2, user: andy, title: "Thank you", body: "👍🏼👍🏼👍🏼")
 Answer.create!(question: q3, user: andy, title: "In case you are wondering",
                body: "This is the same that is accessible under http://mediafinger.com 😊 \n\n > where it's rendered nicer")

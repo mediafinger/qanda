@@ -5,7 +5,7 @@ require "support/validation_failure"
 
 RSpec.describe Question, type: :model do
   describe ".create" do
-    subject(:question) { FactoryBot.build(:question, user: user, body: body, title: title) }
+    subject(:question) { FactoryBot.build(:question, user:, body:, title:) }
 
     let(:user)  { FactoryBot.create(:user) }
     let(:title) { "Why?" }
@@ -104,7 +104,7 @@ RSpec.describe Question, type: :model do
       context "when searched in bodies and titles" do
         let(:fields) { [:body, :title] }
 
-        it { expect(search).to match_array [question_1, question_2] }
+        it { expect(search).to contain_exactly(question_1, question_2) }
       end
 
       context "when searched in bodies" do
@@ -126,7 +126,7 @@ RSpec.describe Question, type: :model do
       context "when searched in bodies and titles" do
         let(:fields) { [:body, :title] }
 
-        it { expect(search).to match_array [question_1] }
+        it { expect(search).to contain_exactly(question_1) }
       end
 
       context "when searched in bodies" do
@@ -149,7 +149,7 @@ RSpec.describe Question, type: :model do
       context "when expecting the result to contain any word" do
         let(:find_any) { true }
 
-        it { expect(search).to match_array [question_1, question_2] }
+        it { expect(search).to contain_exactly(question_1, question_2) }
       end
     end
 
@@ -159,7 +159,7 @@ RSpec.describe Question, type: :model do
       let(:find_any) { false }
       let(:query)    { "disappear !lucky" }
 
-      it { expect(search.to_a).to match_array [question_2] }
+      it { expect(search.to_a).to contain_exactly(question_2) }
     end
 
     # tsearch: { dictionary: "english" } # this would allow for stemming, but does not allow to find terms like "why"
