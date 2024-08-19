@@ -18,7 +18,7 @@ class Question < ApplicationRecord
 
     {
       against: allowed_fields,
-      query: query,
+      query:,
       # ignoring: :accents, # needs migration to enable_extension 'unaccent'
       using: {
         tsearch: {

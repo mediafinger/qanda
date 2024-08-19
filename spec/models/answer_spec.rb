@@ -7,10 +7,10 @@ RSpec.describe Answer, type: :model do
   describe ".create" do
     subject(:answer) do
       described_class.new(
-        user: user,
-        question: question,
-        body: body,
-        title: title
+        user:,
+        question:,
+        body:,
+        title:
       )
     end
 

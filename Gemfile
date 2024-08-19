@@ -41,11 +41,12 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.1"
   gem "haml_lint", "~> 0.37", require: false
   gem "rspec-rails", "~> 5.0"
-  gem "rubocop", "1.14.0", require: false
-  gem "rubocop-performance", "~> 1.10"
-  gem "rubocop-rails", "~> 2.9"
-  gem "rubocop-rake", "~> 0.5"
-  gem "rubocop-rspec", "~> 2.2"
+  gem "rubocop", "~> 1.65", require: false
+  gem "rubocop-capybara", "~> 2.21"
+  gem "rubocop-performance", "~> 1.21"
+  gem "rubocop-rails", "~> 2.25"
+  gem "rubocop-rake", "~> 0.6"
+  gem "rubocop-rspec", "~> 3.0"
   gem "scss_lint", "~> 0.59", require: false
 end
 
