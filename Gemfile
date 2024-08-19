@@ -26,7 +26,7 @@ gem "omniauth-google-oauth2", "~>  1.0"
 gem "omniauth-rails_csrf_protection", "~>  1.0"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pg_search", "~> 2.1"
-gem "puma", "~> 5.2"
+gem "puma", "~> 6.4"
 gem "redcarpet", "~> 3.4"
 gem "rouge", "~> 3.1"
 gem "sass-rails", "~> 6.0"
@@ -35,9 +35,9 @@ gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
   gem "amazing_print", "~> 1.3"
-  gem "bundler-audit", "~> 0.8"
+  gem "bundler-audit", "~> 0.9"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara", "~> 3.16"
+  gem "capybara", "~> 3.40"
   gem "factory_bot_rails", "~> 6.1"
   gem "haml_lint", "~> 0.37", require: false
   gem "rspec-rails", "~> 5.0"
