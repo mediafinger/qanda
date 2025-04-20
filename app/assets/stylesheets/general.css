@@ -11,3 +11,13 @@ footer {
   margin: 1rem;
   text-align: center;
 }
+
+/* ****************************** */
+
+a {
+  color: #66a;
+}
+
+form {
+  padding: 0 4rem;
+}
