@@ -1,7 +1,12 @@
-.success {
-  background-color: rgb(43, 251, 43);
-}
-
 .failure {
   background-color: rgb(253, 166, 166);
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.success {
+  background-color: rgb(43, 251, 43);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }

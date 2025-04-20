@@ -4,11 +4,11 @@
   = render partial: "/layouts/errors", locals: { record: @question }
 
   .field
-    .label Title:
+    .label Title
     = f.text_field :title, placeholder: "Brief question", maxlength: 255
 
   .field
-    .label Body:
+    .label Body
     = f.text_area :body, placeholder: "All glorious details of your question, feel free to use markdown", maxlength: 65535
 
   .field.actions

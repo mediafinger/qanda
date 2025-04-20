@@ -3,7 +3,7 @@
 
 .questions
   - @questions.each do |question|
-    %article.question
+    .question
       .q-title= link_to question.title, question_path(question)
       .username= question.user.name
       .q-body.limited= render_as_markdown(question.body)
