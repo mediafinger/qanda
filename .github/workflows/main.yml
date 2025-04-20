@@ -6,13 +6,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest] # macos-latest
-        ruby: ['2.7', '3.0'] # Due to https://github.com/actions/runner/issues/849, we have to use quotes
+        ruby: ['3.4'] # Due to https://github.com/actions/runner/issues/849, we have to use quotes
 
     runs-on: ${{ matrix.os }}
 
     services:
       postgres:
-        image: postgres:12
+        image: postgres:17
         env:
           POSTGRES_DB: qanda_test
           POSTGRES_USER: postgres
@@ -25,7 +25,7 @@ jobs:
           --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
