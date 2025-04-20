@@ -13,12 +13,15 @@ gem "rails", "~> 6.1"
 # gems that were removed from Ruby's standard library
 # listing them here will be redundant, once the rails version is updated
 gem "base64"
+gem "benchmark"
 gem "bigdecimal"
 gem "matrix"
 gem "mutex_m"
 gem "observer"
+gem "ostruct"
 
 # gem "bootsnap", ">= 1.1.0", require: false
+gem "dartsass-rails"
 gem "dotenv-rails", "~> 2.4"
 gem "haml-rails", "~> 2.0"
 gem "jbuilder", "~> 2.5"
@@ -29,7 +32,7 @@ gem "pg_search", "~> 2.1"
 gem "puma", "~> 6.4"
 gem "redcarpet", "~> 3.4"
 gem "rouge", "~> 3.1"
-gem "sass-rails", "~> 6.0"
+# gem "sass-rails", "~> 6.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
