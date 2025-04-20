@@ -8,7 +8,7 @@ source "https://rubygems.org"
 # For heroku:
 # ruby File.read(".ruby-version").strip.delete_prefix("ruby-")
 
-gem "rails", "~> 7.0"
+gem "rails", "~> 8.0"
 
 # gems that were removed from Ruby's standard library
 # listing them here will be redundant, once the rails version is updated
