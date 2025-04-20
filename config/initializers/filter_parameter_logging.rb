@@ -7,6 +7,9 @@ Rails.application.config.filter_parameters += %i(
   _key
   certificate
   crypt
+  cvc
+  cvv
+  email
   otp
   passw
   salt
