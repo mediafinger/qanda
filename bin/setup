@@ -1,13 +1,11 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
+require "fileutils"
 
-require "FileUtils"
-
-# path to your application root.
 APP_ROOT = File.expand_path("..", __dir__)
+APP_NAME = "qanda"
 
 def system!(*args)
-  system(*args) || abort("\n== Command #{args} failed ==")
+  system(*args, exception: true)
 end
 
 FileUtils.chdir APP_ROOT do
@@ -18,9 +16,6 @@ FileUtils.chdir APP_ROOT do
   puts "== Installing dependencies =="
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
-
-  # Install JavaScript dependencies
-  system! "bin/yarn"
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
@@ -35,4 +30,8 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
+
+  # puts "\n== Configuring puma-dev =="
+  # system "ln -nfs #{APP_ROOT} ~/.puma-dev/#{APP_NAME}"
+  # system "curl -Is https://#{APP_NAME}.test/up | head -n 1"
 end

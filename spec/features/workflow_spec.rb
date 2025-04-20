@@ -64,7 +64,6 @@ RSpec.feature "Workflow", type: :feature do
     expect(page).not_to have_text("List of all questions")
   end
 
-  #rubocop:disable Metrics/AbcSize
   def search_a_question
     click_link "Search"
 
@@ -88,7 +87,6 @@ RSpec.feature "Workflow", type: :feature do
     expect(page).to have_text("Your search results")
     expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
   end
-  #rubocop:enable Metrics/AbcSize
 
   def logout
     click_link "Logout"
