@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_10_231248) do
-
+ActiveRecord::Schema[7.2].define(version: 2018_05_10_231248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -21,8 +20,8 @@ ActiveRecord::Schema.define(version: 2018_05_10_231248) do
     t.uuid "question_id"
     t.string "title"
     t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -31,8 +30,8 @@ ActiveRecord::Schema.define(version: 2018_05_10_231248) do
     t.uuid "user_id"
     t.string "title"
     t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -42,8 +41,7 @@ ActiveRecord::Schema.define(version: 2018_05_10_231248) do
     t.string "image"
     t.string "provider"
     t.string "provider_uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
-
 end
