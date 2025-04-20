@@ -1,27 +1,47 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Qanda
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title
+      = content_for(:title) || "QandA"
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
+    %meta{name: "apple-mobile-web-app-capable", content: "yes"}
+    %meta{name: "mobile-web-app-capable", content: "yes"}
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    - if current_user
-      %b= "Hello #{current_user.name}"
-      |
-      = link_to "Logout", logout_path, method: :delete
-      |
-      = link_to "Questions", questions_path
-      |
-      = link_to "Ask Question", new_question_path
-      |
-      = link_to "Search", search_path
 
-      %br
+    = yield :head
+
+    %link{rel: "icon", href: "/icon.png", type: "image/png"}
+    %link{rel: "icon", href: "/icon.svg", type: "image/svg+xml"}
+    %link{rel: "apple-touch-icon", href: "/icon.png"}
+
+    = stylesheet_link_tag :app, "data-turbo-track": "reload"
+    = javascript_importmap_tags
+
+  %body
+    %header
+      - if current_user
+        %b= "Hello #{current_user.name}"
+        |
+        = link_to "Logout", logout_path, method: :delete
+        |
+        = link_to "Questions", questions_path
+        |
+        = link_to "Ask Question", new_question_path
+        |
+        = link_to "Search", search_path
+      - else
+        = button_to "Please login with Google to continue", "/auth/google_oauth2", method: :post
+
       %hr
-      %br
+
+    %main
+      - if current_user
+        = yield
+
+    %footer
+      %hr
 
       - if flash[:notice]
         .success
@@ -30,8 +50,3 @@
       - if flash[:alert]
         .failure
           = flash[:alert]
-
-      = yield
-
-    - else
-      = button_to "Please login with Google to continue", "/auth/google_oauth2", method: :post

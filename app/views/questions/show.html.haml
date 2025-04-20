@@ -7,7 +7,8 @@
 
 .answers
   - @question.answers.to_a.each do |answer|
-    .answer
+
+    %article.answer
       .a-title= answer.title
       .username= answer.user.name
       .a-body= render_as_markdown(answer.body)

@@ -13,7 +13,7 @@ if %w(development test).include? Rails.env
   require "haml_lint/rake_task"
   require "rspec/core/rake_task"
   require "rubocop/rake_task"
-  require "scss_lint/rake_task"
+  # require "scss_lint/rake_task"
 
   # setup task bundle:audit
   Bundler::Audit::Task.new
@@ -30,9 +30,9 @@ if %w(development test).include? Rails.env
   end
 
   # setup task scss_lint
-  SCSSLint::RakeTask.new(:scss_lint) do |t|
-    t.files = Dir.glob(["app/assets/stylesheets"])
-  end
+  # SCSSLint::RakeTask.new(:scss_lint) do |t|
+  #   t.files = Dir.glob(["app/assets/stylesheets"])
+  # end
 
   namespace :factory_bot do
     desc "Verify that all FactoryBot factories are valid"

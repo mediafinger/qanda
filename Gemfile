@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
 # To use https when pointing to github repos:
 # git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # For heroku:
-# ruby File.read(".ruby-version").strip.delete_prefix("ruby-")
+ruby File.read(".ruby-version").strip.delete_prefix("ruby-")
 
 gem "rails", "~> 8.0.2"
 
@@ -20,17 +18,18 @@ gem "mutex_m"
 gem "observer"
 gem "ostruct"
 
-gem "sprockets-rails", require: "sprockets/railtie"
-
-# gem "bootsnap", ">= 1.1.0", require: false
-gem "dartsass-rails"
+# gem "bootsnap", require: false
+# gem "cssbundling-rails"
 gem "dotenv-rails", "~> 3.0"
 gem "haml-rails", "~> 2.0"
+gem "importmap-rails", "~> 2.0" # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "jbuilder", "~> 2.5"
+# gem "jsbundling-rails"
 gem "omniauth-google-oauth2", "~>  1.1"
 gem "omniauth-rails_csrf_protection", "~>  1.0"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pg_search", "~> 2.1"
+gem "propshaft" # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "puma", "~> 6.4"
 gem "redcarpet", "~> 3.4"
 gem "rouge", "~> 4.0"
@@ -55,13 +54,10 @@ group :development, :test do
   gem "rubocop-rake"
   gem "rubocop-rspec"
   gem "rubocop-rspec_rails"
-  gem "scss_lint", "~> 0.59", require: false
+  # gem "scss_lint", "~> 0.59", require: false
 end
 
 group :development do
   gem "listen", "~> 3.5"
   gem "web-console", ">= 3.3.0"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
