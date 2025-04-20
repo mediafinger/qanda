@@ -18,12 +18,13 @@ Change to the newly created directory and run:
 
 `bundle install`
 
-Which needs **Ruby** (the app was tested with the Ruby versions `2.5`, `2.6`, `2.7` and `3.0`) and the **gem bundler**.  
+Which needs **Ruby** `3.4` and the **gem bundler**.
+> (older versions ran with `2.5`, `2.6`, `2.7` and `3.0`, but that stopped with the update to Rails `7.2`)
 When all gems have been installed, execute:
 
 `bin/rails db:setup`
 
-This will create the _development_ and _test_ database. **You need to have _Postgres_ installed**.
+This will create the _development_ and _test_ database. **You need to have _Postgres_ installed** (testing was done with version `17`).
 
 ## How to run the tests
 
