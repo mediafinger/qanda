@@ -42,22 +42,8 @@ Layout/MultilineMethodCallIndentation:
 Metrics/AbcSize:
   Max: 25
 
-Metrics/BlockLength:
-  Exclude:
-    - config.rb
-    - spec/**/*
-
-Metrics/ClassLength:
-  Max: 120
-
-Metrics/CyclomaticComplexity:
-  Max: 10
-
-Metrics/MethodLength:
-  Max: 20
-
-Metrics/PerceivedComplexity:
-  Max: 8
+Metrics:
+  Enabled: false
 
 Naming/VariableNumber:
   Enabled: false
@@ -125,6 +111,9 @@ Style/DoubleNegation:
   Enabled: false
 
 Style/EmptyMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/ModuleFunction:
