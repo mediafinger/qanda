@@ -44,7 +44,7 @@ group :development, :test do
   gem "capybara", "~> 3.40"
   gem "factory_bot_rails", "~> 6.1"
   gem "haml_lint", "~> 0.37", require: false
-  gem "rspec-rails", "~> 7.0"
+  gem "rspec-rails", "~> 8.0"
   gem "rubocop", "~> 1.65", require: false
   gem "rubocop-capybara"
   gem "rubocop-factory_bot"
