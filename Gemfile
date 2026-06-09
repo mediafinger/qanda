@@ -30,7 +30,7 @@ gem "omniauth-rails_csrf_protection", "~>  1.0"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pg_search", "~> 2.1"
 gem "propshaft" # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "puma", "~> 6.4"
+gem "puma", "~> 8.0"
 gem "redcarpet", "~> 3.4"
 gem "rouge", "~> 4.0"
 # gem "sass-rails", "~> 6.0"
