@@ -41,7 +41,7 @@ gem "uglifier", ">= 1.3.0"
 group :development, :test do
   gem "amazing_print", "~> 1.3"
   gem "bundler-audit", "~> 0.9"
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug", platforms: [:mri, :windows]
   gem "capybara", "~> 3.40"
   gem "factory_bot_rails", "~> 6.1"
   gem "haml_lint", "~> 0.37", require: false
