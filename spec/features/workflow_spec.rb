@@ -61,7 +61,7 @@ RSpec.feature "Workflow", type: :feature do
     expect(page).to have_text("Why did the lucky stiff disappear? And where is he now?")
     expect(page).to have_text("He could not handle his fame.")
 
-    expect(page).not_to have_text("List of all questions")
+    expect(page).to have_no_text("List of all questions")
   end
 
   def search_a_question
